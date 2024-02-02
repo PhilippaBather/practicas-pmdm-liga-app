@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LigaApp</string>
+    <string name="menu_item_home">Home</string>
+    <string name="menu_item_stadiums">Stadiums</string>
+    <string name="menu_item_teams">Teams</string>
+</resources>
