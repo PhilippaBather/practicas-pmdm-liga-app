@@ -9,6 +9,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.philippabather.ligaapp.R;
+import com.philippabather.ligaapp.domain.Team;
 import com.philippabather.ligaapp.views.TeamDetailView;
 
 import java.util.List;
@@ -18,9 +19,9 @@ public class TeamsHolder extends RecyclerView.ViewHolder {
     protected CardView cvTeamItem;
     protected TextView tvTeamName;
     private final View parentView;
-    private List<String> teams;
+    private List<Team> teams;
 
-    public TeamsHolder(@NonNull View itemView, List<String> teams) {
+    public TeamsHolder(@NonNull View itemView, List<Team> teams) {
         super(itemView);
         parentView = itemView;
         this.teams = teams;
@@ -34,15 +35,16 @@ public class TeamsHolder extends RecyclerView.ViewHolder {
         tvTeamName = parentView.findViewById(R.id.tv_team_name);
     }
 
-    private void goToTeamDetailsView(List<String> teams) {
+    private void goToTeamDetailsView(List<Team> teams) {
         // TODO - method to go to specific team page
         Intent intent = new Intent(parentView.getContext(), TeamDetailView.class);
-        String id = String.valueOf(getCurrentTeam(teams));
-        intent.putExtra("team_name", id);
-        parentView.getContext().startActivity(intent);
+        Team team = getCurrentTeam(teams);
+        // TODO - use parcelable
+//        intent.putExtra("team_name");
+//        parentView.getContext().startActivity(intent);
     }
 
-    private String getCurrentTeam(List<String> teams) {
+    private Team getCurrentTeam(List<Team> teams) {
         int adapterPosition = getAdapterPosition();
         return teams.get(adapterPosition);
     }
