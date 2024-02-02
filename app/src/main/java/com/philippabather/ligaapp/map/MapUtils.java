@@ -24,7 +24,7 @@ public class MapUtils {
     public static PointAnnotationManager initializePointAnnotationManager(MapView mapView) {
         AnnotationPlugin annotationPlugin = AnnotationPluginImplKt.getAnnotations(mapView);
         AnnotationConfig annotationConfig = new AnnotationConfig();
-        return PointAnnotationManagerKt.createPointAnnotationManager(annotatigonPlugin, annotationConfig);
+        return PointAnnotationManagerKt.createPointAnnotationManager(annotationPlugin, annotationConfig);
     }
 
     public static void setCameraPositionAndZoom(MapView mapView) {
