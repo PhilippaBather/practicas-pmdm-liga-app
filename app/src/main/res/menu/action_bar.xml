@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_item_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="tag_action_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/menu_item_stadiums"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="tag_action_teams"
+        android:title="@string/stadiums" />
+
+    <item
+        android:id="@+id/menu_item_teams"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="tag_action_teams"
+        android:title="@string/teams" />
+
+</menu>
