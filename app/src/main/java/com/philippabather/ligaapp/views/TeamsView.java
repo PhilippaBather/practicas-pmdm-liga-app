@@ -7,15 +7,45 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.philippabather.ligaapp.R;
+import com.philippabather.ligaapp.adapter.TeamsAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TeamsView extends AppCompatActivity {
+
+    private TeamsAdapter teamsAdapter;
+    private LinearLayoutManager linearLayoutManager;
+    private RecyclerView teamsRecyclerView;
+
+    private List<String> dummyData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teams);
+        setContentView(R.layout.activity_teams_list);
+        findViews();
+
+        // TODO - remove DUMMY DATA
+        dummyData = new ArrayList<>();
+        dummyData.add("Brighton & Hove Albion");
+        dummyData.add("Southampton FC");
+        dummyData.add("Manchester City FC");
+
+        linearLayoutManager = new LinearLayoutManager(TeamsView.this);
+        teamsRecyclerView.setLayoutManager(linearLayoutManager);
+
+        teamsAdapter = new TeamsAdapter(dummyData);
+        teamsRecyclerView.setAdapter(teamsAdapter);
+    }
+
+    private void findViews() {
+        teamsRecyclerView = findViewById(R.id.rv_team_list);
+        teamsRecyclerView.setHasFixedSize(true);
     }
 
     @Override
