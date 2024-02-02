@@ -1,6 +1,8 @@
 package com.philippabather.ligaapp.views;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,14 +10,29 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.mapbox.geojson.Point;
+import com.mapbox.maps.MapView;
+import com.mapbox.maps.Style;
+import com.mapbox.maps.plugin.annotation.generated.PointAnnotationManager;
+import com.mapbox.maps.plugin.gestures.OnMapClickListener;
 import com.philippabather.ligaapp.R;
+import com.philippabather.ligaapp.map.MapUtils;
 
-public class StadiumsView extends AppCompatActivity {
+public class StadiumsView extends AppCompatActivity implements Style.OnStyleLoaded, OnMapClickListener {
+
+    private MapView mapView;
+    private PointAnnotationManager pointAnnotationManager; // MapBox libraries - for annotating the map
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stadiums);
+        findViews();
+        setUpMap();
+    }
+
+    private void findViews() {
+        mapView = findViewById(R.id.mapView);
     }
 
     @Override
@@ -39,4 +56,23 @@ public class StadiumsView extends AppCompatActivity {
         startActivity(intent);
         return true;
     }
+
+    private void setUpMap() {
+        mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS, this);
+        pointAnnotationManager = MapUtils.initializePointAnnotationManager(mapView);
+        Bitmap marker = BitmapFactory.decodeResource(getResources(), R.mipmap.blue_marker_view);
+
+        MapUtils.addMarker(pointAnnotationManager, marker, 41.6488, 0.8891);
+    }
+
+    @Override
+    public void onStyleLoaded(@NonNull Style style) {
+        MapUtils.setCameraPositionAndZoom(mapView);
+    }
+
+    @Override
+    public boolean onMapClick(@NonNull Point point) {
+        return false;
+    }
+
 }
