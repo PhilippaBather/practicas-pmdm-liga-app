@@ -27,6 +27,8 @@
         <activity
             android:name=".views.TeamsView"
             android:exported="false" />
+        <activity android:name=".views.TeamDetailView"
+            android:exported="false" />
     </application>
 
 </manifest>
