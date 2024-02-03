@@ -16,11 +16,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TeamModel implements TeamsContract.Model {
+public class TeamsModel implements TeamsContract.Model {
 
     private final LaLigaApiInterface api;
 
-    public TeamModel() {
+    public TeamsModel() {
         this.api = LaLigaApi.buildInstance();
     }
 
