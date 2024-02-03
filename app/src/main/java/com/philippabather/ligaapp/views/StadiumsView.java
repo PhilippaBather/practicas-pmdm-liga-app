@@ -81,9 +81,6 @@ public class StadiumsView extends AppCompatActivity implements StadiumsContract.
     private void setUpMap() {
         mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS, this);
         pointAnnotationManager = MapUtils.initializePointAnnotationManager(mapView);
-        Bitmap marker = BitmapFactory.decodeResource(getResources(), R.mipmap.blue_marker_view);
-//
-//        MapUtils.addMarker(pointAnnotationManager, marker, 40.4530, -3.6883);
     }
 
     @Override
