@@ -33,6 +33,8 @@
             android:exported="false" />
         <activity android:name=".views.TeamDetailView"
             android:exported="false" />
+        <activity android:name=".views.AddStadiumView"
+            android:exported="false"/>
     </application>
 
 </manifest>
