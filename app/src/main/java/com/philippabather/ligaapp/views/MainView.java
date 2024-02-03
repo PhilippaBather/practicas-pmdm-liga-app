@@ -14,6 +14,7 @@ import com.philippabather.ligaapp.R;
 
 public class MainView extends AppCompatActivity {
 
+    private CardView cvAddStadium;
     private CardView cvStadiums;
     private CardView cvTeams;
 
@@ -26,13 +27,20 @@ public class MainView extends AppCompatActivity {
     }
 
     private void findViews() {
+        cvAddStadium = findViewById(R.id.cv_add_stadium);
         cvStadiums = findViewById(R.id.cv_stadiums);
         cvTeams = findViewById(R.id.cv_teams);
     }
 
     private void setListeners() {
+        cvAddStadium.setOnClickListener(v -> goToAddStadiumActivity());
         cvStadiums.setOnClickListener(v -> goToStadiumsActivity());
         cvTeams.setOnClickListener(v -> goToTeamsActivity());
+    }
+
+    private void goToAddStadiumActivity() {
+        Intent intent = new Intent(this, AddStadiumView.class);
+        startActivity(intent);
     }
 
     private void goToStadiumsActivity() {

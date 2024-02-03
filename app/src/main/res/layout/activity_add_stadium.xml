@@ -28,14 +28,14 @@
         android:id="@+id/tv_add_stadium_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ID" />
+        android:text="@string/tv_add_stadium_id" />
 
     <EditText
         android:id="@+id/et_add_stadium_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:hint="ID del estadio"
+        android:hint="@string/et_add_stadium_id"
         android:minHeight="48dp" />
 
     <TextView
@@ -43,14 +43,14 @@
         android:id="@+id/tv_add_stadium_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre del estadio" />
+        android:text="@string/tv_add_stadium_name" />
 
     <EditText
         android:id="@+id/et_add_stadium_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:hint="Nombre del estadio"
+        android:hint="@string/et_add_stadium_name"
         android:minHeight="48dp" />
 
     <TextView
@@ -58,14 +58,14 @@
         android:id="@+id/tv_add_stadium_construction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fecha de construccíon" />
+        android:text="@string/tv_add_stadium_construction_date" />
 
     <EditText
         android:id="@+id/et_add_stadium_construction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:hint="Fecha de construcción"
+        android:layout_marginStart="16dp"
+        android:hint="@string/et_add_stadium_construction_date"
         android:minHeight="48dp" />
 
     <TextView
@@ -73,14 +73,14 @@
         android:id="@+id/tv_add_stadium_adapted_access"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Acceso adapatado" />
+        android:text="@string/tv_add_stadium_disabled_access" />
 
     <EditText
         android:id="@+id/et_add_stadium_adapted_access"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:hint="Entra 'true' o 'false"
+        android:hint="@string/et_add_stadium_disabled_access"
         android:minHeight="48dp" />
 
     <LinearLayout
@@ -91,18 +91,18 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_cancel"
+            android:id="@+id/btn_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
-            android:text="Cancelar" />
+            android:text="@string/bt_back" />
 
         <Button
             android:id="@+id/btn_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
-            android:text="Añadir" />
+            android:text="@string/btn_add" />
     </LinearLayout>
 
 

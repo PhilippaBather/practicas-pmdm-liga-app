@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="32dp"
-        android:text="Team Stats"
+        android:text="@string/tv_team_details_team_title"
         android:textSize="28sp"
         android:textStyle="bold" />
 
@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
-        android:text="Nombre"
+        android:text="@string/tv_team_details_name"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -66,7 +66,7 @@
         android:inputType="text"
         android:minWidth="48dp"
         android:minHeight="48dp"
-        android:text="YES" />
+        android:text="true" />
 
     <TextView
         android:id="@+id/tv_team_details_points"
@@ -98,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:text="Volver" />
+            android:text="@string/btn_back" />
 
 
         <Button
@@ -106,14 +106,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:text="Actualizar" />
+            android:text="@string/btn_update" />
 
         <Button
             android:id="@+id/btn_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:text="Eliminar" />
+            android:text="@string/btn_delete" />
 
     </LinearLayout>
 

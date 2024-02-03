@@ -1,7 +1,28 @@
 <resources>
     <string name="app_name">LigaApp</string>
+    <string name="btn_delete">Eliminar</string>
     <string name="menu_item_home">Home</string>
     <string name="menu_item_stadiums">Estadios</string>
     <string name="menu_item_teams">Equipos</string>
     <string name="tv_teams_list_title">Todos Los Equipos</string>
+    <string name="ui_alert_dialog_btn_cancel">Cancelar</string>
+    <string name="ui_alert_dialog_delete_team">¿Estas seguro de que deseas eliminar el equipo?</string>
+    <string name="ui_alert_dialog_update_team">¿Estas seguro de que deseas actualizar el equipo?</string>
+    <string name="tv_add_stadium_id">ID</string>
+    <string name="et_add_stadium_id">ID del equipo</string>
+    <string name="tv_add_stadium_name">Nombre del estadio</string>
+    <string name="et_add_stadium_name">Nombre del estadio</string>
+    <string name="tv_add_stadium_construction_date">Fecha de construccíon</string>
+    <string name="et_add_stadium_construction_date">Fecha de construcción</string>
+    <string name="tv_add_stadium_disabled_access">Acceso adapatado</string>
+    <string name="et_add_stadium_disabled_access">Entra \'true\' o \'false</string>
+    <string name="bt_back">Volver</string>
+    <string name="btn_add">Añadir</string>
+    <string name="tv_main_all_stadiums">Todos los estadios</string>
+    <string name="tv_main_all_teams">Todos los equipos...</string>
+    <string name="tv_main_add_stadium">Añadir un estadio...</string>
+    <string name="tv_team_details_team_title">Team Stats</string>
+    <string name="tv_team_details_name">Nombre</string>
+    <string name="btn_update">Actualizar</string>
+    <string name="btn_back">Volver</string>
 </resources>

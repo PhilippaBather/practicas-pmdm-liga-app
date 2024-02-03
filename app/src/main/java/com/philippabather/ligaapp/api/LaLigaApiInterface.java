@@ -1,5 +1,6 @@
 package com.philippabather.ligaapp.api;
 
+import com.philippabather.ligaapp.domain.NewStadiumDTO;
 import com.philippabather.ligaapp.domain.Stadium;
 import com.philippabather.ligaapp.domain.Team;
 
@@ -10,6 +11,7 @@ import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
+import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
@@ -18,6 +20,10 @@ public interface LaLigaApiInterface {
     @Headers({"Accept: application/json"})
     @GET("/stadiums")
     Call<List<Stadium>> getStadiums();
+
+    @Headers({"Accept: application/json"})
+    @POST("/stadiums")
+    Call<Stadium> addStadium(@Body NewStadiumDTO stadium);
 
     @Headers({"Accept: application/json"})
     @GET("/teams")
