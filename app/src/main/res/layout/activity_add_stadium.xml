@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <com.mapbox.maps.MapView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        mapbox:layout_constraintBottom_toBottomOf="parent"
+        mapbox:layout_constraintEnd_toEndOf="parent"
+        mapbox:layout_constraintStart_toStartOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
+        mapbox:mapbox_cameraTargetLat="40.7128"
+        mapbox:mapbox_cameraTargetLng="-74.0060"
+        mapbox:mapbox_cameraZoom="9.0" />
+
+    <TextView
+        android:layout_marginLeft="16dp"
+        android:id="@+id/tv_add_stadium_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID" />
+
+    <EditText
+        android:id="@+id/et_add_stadium_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:hint="ID del estadio"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:layout_marginLeft="16dp"
+        android:id="@+id/tv_add_stadium_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre del estadio" />
+
+    <EditText
+        android:id="@+id/et_add_stadium_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:hint="Nombre del estadio"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:layout_marginLeft="16dp"
+        android:id="@+id/tv_add_stadium_construction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha de construccíon" />
+
+    <EditText
+        android:id="@+id/et_add_stadium_construction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:hint="Fecha de construcción"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:layout_marginLeft="16dp"
+        android:id="@+id/tv_add_stadium_adapted_access"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Acceso adapatado" />
+
+    <EditText
+        android:id="@+id/et_add_stadium_adapted_access"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:hint="Entra 'true' o 'false"
+        android:minHeight="48dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:text="Cancelar" />
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:text="Añadir" />
+    </LinearLayout>
+
+
+</LinearLayout>

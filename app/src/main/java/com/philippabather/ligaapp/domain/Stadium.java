@@ -1,7 +1,5 @@
 package com.philippabather.ligaapp.domain;
 
-import java.time.LocalDate;
-
 public class Stadium {
     private long id;
     private String name;
@@ -9,7 +7,7 @@ public class Stadium {
     private Boolean adaptedAccess;
     private float latitude;
     private float longitude;
-     private Team team;
+    private Team team;
 
     public long getId() {
         return id;
