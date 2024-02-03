@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="8dp"
-                android:text="Todos los estadios"
+                android:text="@string/tv_main_all_stadiums"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="8dp"
-                android:text="Todos los equipos..."
+                android:text="@string/tv_main_all_teams"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="8dp"
-                android:text="Añadir un estadio..."
+                android:text="@string/tv_main_add_stadium"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
