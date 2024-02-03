@@ -29,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:minHeight="48dp"
+        android:inputType="text"
         android:text="Brighton and Hove Albion" />
 
     <TextView
@@ -62,6 +63,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:inputType="text"
+        android:minWidth="48dp"
         android:minHeight="48dp"
         android:text="YES" />
 
@@ -79,7 +82,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:minWidth="32dp"
+        android:inputType="number"
+        android:minWidth="48dp"
         android:minHeight="48dp"
         android:text="8" />
 
@@ -90,17 +94,25 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Volver" />
+
+
+        <Button
             android:id="@+id/btn_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="8dp"
             android:text="Actualizar" />
 
         <Button
             android:id="@+id/btn_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="8dp"
             android:text="Eliminar" />
 
     </LinearLayout>
