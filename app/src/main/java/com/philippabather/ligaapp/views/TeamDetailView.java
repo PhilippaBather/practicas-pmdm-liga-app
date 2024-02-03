@@ -1,5 +1,7 @@
 package com.philippabather.ligaapp.views;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -47,10 +49,6 @@ public class TeamDetailView extends AppCompatActivity implements TeamDetailContr
 
         teamsDetailPresenter = new TeamsDetailPresenter(this);
         teamUpdatePresenter = new TeamUpdatePresenter(this);
-
-        // add dialogs
-
-        // add action bar
     }
 
     @Override
@@ -118,20 +116,52 @@ public class TeamDetailView extends AppCompatActivity implements TeamDetailContr
     }
 
     private void handleDelete() {
-        // TODO - dialog
-        teamUpdatePresenter.deleteTeamById(team.getId());
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(getResources().getString(R.string.ui_alert_dialog_delete_team)).setPositiveButton(getResources().getString(R.string.btn_delete),
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        teamUpdatePresenter.deleteTeamById(team.getId());
+                        goToTeamsView();
+                    }
+                }).setNegativeButton(getResources().getString(R.string.ui_alert_dialog_btn_cancel), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                return;
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void goToTeamsView() {
+        Intent intent = new Intent(this, TeamsView.class);
+        startActivity(intent);
     }
 
     private void handleUpdate() {
-        // TODO - dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        String name = etName.getText().toString();
-        String founded = etFounded.getText().toString();
-        boolean areChampions = etChampions.getText().toString().toLowerCase().equals("true"); // default: false
-        int points = Integer.parseInt(etPoints.getText().toString());
-        Team updatedTeam = new Team(name, founded, areChampions, points);
+        builder.setMessage(getResources().getString(R.string.ui_alert_dialog_update_team)).setPositiveButton(getResources().getString(R.string.btn_delete),
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String name = etName.getText().toString();
+                        String founded = etFounded.getText().toString();
+                        boolean areChampions = etChampions.getText().toString().toLowerCase().equals("true"); // default: false
+                        int points = Integer.parseInt(etPoints.getText().toString());
+                        Team updatedTeam = new Team(name, founded, areChampions, points);
 
-        teamUpdatePresenter.updateTeamById(team.getId(), updatedTeam);
+                        teamUpdatePresenter.updateTeamById(team.getId(), updatedTeam);
+                    }
+                }).setNegativeButton(getResources().getString(R.string.ui_alert_dialog_btn_cancel), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                return;
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     @Override
