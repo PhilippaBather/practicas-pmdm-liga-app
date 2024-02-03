@@ -1,7 +1,5 @@
 package com.philippabather.ligaapp.domain;
 
-import java.time.LocalDate;
-
 public class Team {
     private long id;
     private String name;
@@ -47,5 +45,16 @@ public class Team {
 
     public void setLeaguePoints(int leaguePoints) {
         this.leaguePoints = leaguePoints;
+    }
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", foundationDate='" + foundationDate + '\'' +
+                ", areChampions=" + areChampions +
+                ", leaguePoints=" + leaguePoints +
+                '}';
     }
 }
