@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,17 +13,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.philippabather.ligaapp.R;
 import com.philippabather.ligaapp.adapter.TeamsAdapter;
+import com.philippabather.ligaapp.contract.TeamsContract;
+import com.philippabather.ligaapp.domain.Team;
+import com.philippabather.ligaapp.presenter.TeamPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeamsView extends AppCompatActivity {
+public class TeamsView extends AppCompatActivity implements TeamsContract.View {
 
     private TeamsAdapter teamsAdapter;
     private LinearLayoutManager linearLayoutManager;
     private RecyclerView teamsRecyclerView;
-
-    private List<String> dummyData;
+    private TeamPresenter presenter;
+    private List<Team> teamList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,17 +34,20 @@ public class TeamsView extends AppCompatActivity {
         setContentView(R.layout.activity_teams_list);
         findViews();
 
-        // TODO - remove DUMMY DATA
-        dummyData = new ArrayList<>();
-        dummyData.add("Brighton & Hove Albion");
-        dummyData.add("Southampton FC");
-        dummyData.add("Manchester City FC");
+        presenter = new TeamPresenter(this);
+        teamList = new ArrayList<>();
 
         linearLayoutManager = new LinearLayoutManager(TeamsView.this);
         teamsRecyclerView.setLayoutManager(linearLayoutManager);
 
-        teamsAdapter = new TeamsAdapter(dummyData);
+        teamsAdapter = new TeamsAdapter(teamList);
         teamsRecyclerView.setAdapter(teamsAdapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.loadTeams();
     }
 
     private void findViews() {
@@ -68,5 +75,17 @@ public class TeamsView extends AppCompatActivity {
 
         startActivity(intent);
         return true;
+    }
+
+    @Override
+    public void listTeams(List<Team> teamsList) {
+        this.teamList.clear();
+        this.teamList.addAll(teamsList);
+        teamsAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void showMessage(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
 }

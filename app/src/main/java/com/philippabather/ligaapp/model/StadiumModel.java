@@ -20,7 +20,7 @@ import retrofit2.Response;
 public class StadiumModel implements StadiumsContract.Model {
     private final LaLigaApiInterface api;
 
-    public StadiumModel(Context context) {
+    public StadiumModel() {
         this.api = LaLigaApi.buildInstance();
     }
 

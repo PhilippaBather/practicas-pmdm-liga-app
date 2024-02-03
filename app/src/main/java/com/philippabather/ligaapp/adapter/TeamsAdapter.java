@@ -8,16 +8,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.philippabather.ligaapp.R;
+import com.philippabather.ligaapp.domain.Team;
 
 import java.util.List;
 
 public class TeamsAdapter extends RecyclerView.Adapter<TeamsHolder> {
 
-    private List<String> teams;
+    private List<Team> teams;
     private TeamsHolder teamsHolder;
 
-    // TODO - revise: placeholder while API classes are being created
-    public TeamsAdapter(List<String> teams) {
+    public TeamsAdapter(List<Team> teams) {
         this.teams = teams;
     }
 
@@ -30,8 +30,8 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull TeamsHolder holder, int position) {
-        String team = teams.get(position);
-        holder.tvTeamName.setText(team);
+        Team team = teams.get(position);
+        holder.tvTeamName.setText(team.getName());
     }
 
     @Override

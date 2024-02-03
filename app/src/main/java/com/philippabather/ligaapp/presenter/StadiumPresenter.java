@@ -14,7 +14,7 @@ public class StadiumPresenter implements StadiumsContract.Presenter, StadiumsCon
 
     public StadiumPresenter(StadiumsView stadiumsView) {
         this.stadiumsView = stadiumsView;
-        this.stadiumModel = new StadiumModel(this.stadiumsView);
+        this.stadiumModel = new StadiumModel();
     }
 
     @Override
