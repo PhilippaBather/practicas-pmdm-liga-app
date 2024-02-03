@@ -5,4 +5,25 @@
     <string name="menu_item_stadiums">Stadiums</string>
     <string name="menu_item_teams">Teams</string>
     <string name="tv_teams_list_title">All Teams</string>
+    <string name="ui_alert_dialog_delete_team">Are you sure you want to delete the team?</string>
+    <string name="btn_delete">Delete</string>
+    <string name="ui_alert_dialog_btn_cancel">Cancel</string>
+    <string name="ui_alert_dialog_update_team">Are you sure you want to update the team?</string>
+    <string name="tv_add_stadium_id">ID</string>
+    <string name="et_add_stadium_id">Team ID</string>
+    <string name="tv_add_stadium_name">Stadium name</string>
+    <string name="et_add_stadium_name">Stadium name</string>
+    <string name="tv_add_stadium_construction_date">Construction date</string>
+    <string name="et_add_stadium_construction_date">Construction date</string>
+    <string name="tv_add_stadium_disabled_access">Disabled Access</string>
+    <string name="et_add_stadium_disabled_access">Enter \'true\' or \'false\'</string>
+    <string name="bt_back">Back</string>
+    <string name="btn_add">Add</string>
+    <string name="tv_main_all_stadiums">All the stadiums...</string>
+    <string name="tv_main_all_teams">All the teams...</string>
+    <string name="tv_main_add_stadium">Add a stadium</string>
+    <string name="tv_team_details_team_title">Team Stats</string>
+    <string name="tv_team_details_name">Name</string>
+    <string name="btn_update">Update</string>
+    <string name="btn_back">Back</string>
 </resources>
