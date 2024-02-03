@@ -70,6 +70,8 @@ public class StadiumsView extends AppCompatActivity implements StadiumsContract.
             intent = new Intent(this, MainView.class);
         } else if (item.getItemId() == R.id.menu_item_teams) {
             intent = new Intent(this, TeamsView.class);
+        } else if (item.getItemId() == R.id.menu_item_add_stadium) {
+            intent = new Intent(this, AddStadiumView.class);
         } else {
             return super.onOptionsItemSelected(item);
         }

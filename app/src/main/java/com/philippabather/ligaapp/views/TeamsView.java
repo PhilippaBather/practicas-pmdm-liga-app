@@ -69,6 +69,8 @@ public class TeamsView extends AppCompatActivity implements TeamsContract.View {
             intent = new Intent(this, MainView.class);
         } else if (item.getItemId() == R.id.menu_item_stadiums) {
             intent = new Intent(this, StadiumsView.class);
+        } else if (item.getItemId() == R.id.menu_item_add_stadium) {
+            intent = new Intent(this, AddStadiumView.class);
         } else {
             return super.onOptionsItemSelected(item);
         }

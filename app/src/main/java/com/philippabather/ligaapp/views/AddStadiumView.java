@@ -81,20 +81,16 @@ public class AddStadiumView extends AppCompatActivity implements AddStadiumContr
     }
 
     private void addStadium() {
-        // TODO
-        // 1. logic to get values
         boolean adaptedAccess = etAdaptedAccess.getText().toString().toLowerCase().equals("true"); // default: false
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
-        LocalDate constructionDate = LocalDate.parse(etConstructionDate.getText().toString());
+        LocalDate constructionDate = LocalDate.parse(etConstructionDate.getText().toString(), formatter);
         String name = etStadiumName.getText().toString();
         long teamId = Long.parseLong(etStadiumId.getText().toString());
 
         NewStadiumDTO newStadium = new NewStadiumDTO(name, constructionDate, adaptedAccess, latitude, longitude, teamId);
 
-        // 2. presenter call to make API request
         presenter.addStadiumByTeamId(newStadium);
 
-        // 3. navigate to home
         goToHome();
     }
 
@@ -146,6 +142,4 @@ public class AddStadiumView extends AppCompatActivity implements AddStadiumContr
     public void showMessage(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
-
-    // 4. dialog for adding
 }

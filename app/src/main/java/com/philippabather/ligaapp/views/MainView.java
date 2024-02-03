@@ -67,7 +67,9 @@ public class MainView extends AppCompatActivity {
             goToStadiumsActivity();
         } else if (item.getItemId() == R.id.menu_item_teams) {
             goToTeamsActivity();
-        } else {
+        } else if (item.getItemId() == R.id.menu_item_add_stadium){
+            goToAddStadiumActivity();
+        }else {
             return super.onOptionsItemSelected(item);
         }
 
