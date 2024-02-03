@@ -1,5 +1,7 @@
 package com.philippabather.ligaapp.views;
 
+import static com.philippabather.ligaapp.map.MapUtils.initializePointAnnotationManager;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -17,6 +19,8 @@ import com.mapbox.geojson.Point;
 import com.mapbox.maps.MapView;
 import com.mapbox.maps.Style;
 import com.mapbox.maps.plugin.annotation.generated.PointAnnotationManager;
+import com.mapbox.maps.plugin.gestures.GesturesPlugin;
+import com.mapbox.maps.plugin.gestures.GesturesUtils;
 import com.mapbox.maps.plugin.gestures.OnMapClickListener;
 import com.philippabather.ligaapp.R;
 import com.philippabather.ligaapp.contract.AddStadiumContract;
@@ -25,6 +29,7 @@ import com.philippabather.ligaapp.map.MapUtils;
 import com.philippabather.ligaapp.presenter.AddStadiumPresenter;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class AddStadiumView extends AppCompatActivity implements AddStadiumContract.View, Style.OnStyleLoaded, OnMapClickListener {
 
@@ -39,6 +44,7 @@ public class AddStadiumView extends AppCompatActivity implements AddStadiumContr
     private float latitude;
     private float longitude;
     private PointAnnotationManager pointAnnotationManager; // MapBox libraries - for annotating the map
+    private GesturesPlugin gesturesPlugin;
     private AddStadiumPresenter presenter;
 
     @Override
@@ -68,13 +74,17 @@ public class AddStadiumView extends AppCompatActivity implements AddStadiumContr
 
     private void setUpMap() {
         mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS, this);
-        pointAnnotationManager = MapUtils.initializePointAnnotationManager(mapView);
+        pointAnnotationManager = initializePointAnnotationManager(mapView);
+
+        gesturesPlugin = GesturesUtils.getGestures(mapView);
+        gesturesPlugin.addOnMapClickListener(this);
     }
 
     private void addStadium() {
         // TODO
         // 1. logic to get values
         boolean adaptedAccess = etAdaptedAccess.getText().toString().toLowerCase().equals("true"); // default: false
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
         LocalDate constructionDate = LocalDate.parse(etConstructionDate.getText().toString());
         String name = etStadiumName.getText().toString();
         long teamId = Long.parseLong(etStadiumId.getText().toString());
