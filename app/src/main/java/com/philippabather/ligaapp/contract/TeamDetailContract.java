@@ -2,7 +2,7 @@ package com.philippabather.ligaapp.contract;
 
 import com.philippabather.ligaapp.domain.Team;
 
-public interface TeamContract {
+public interface TeamDetailContract {
 
     interface Model {
 
@@ -11,7 +11,7 @@ public interface TeamContract {
             void onLoadTeamError(String msg);
         }
 
-        void loadTeam(OnLoadTeamListener onLoadTeamListener);
+        void loadTeam(OnLoadTeamListener onLoadTeamListener, long id);
     }
 
     interface View {
@@ -21,7 +21,7 @@ public interface TeamContract {
     }
 
     interface Presenter {
-        void loadTeam();
+        void loadTeam(long id);
     }
 
 }
