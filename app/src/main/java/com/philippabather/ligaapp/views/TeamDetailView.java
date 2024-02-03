@@ -144,7 +144,7 @@ public class TeamDetailView extends AppCompatActivity implements TeamDetailContr
     private void handleUpdate() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setMessage(getResources().getString(R.string.ui_alert_dialog_update_team)).setPositiveButton(getResources().getString(R.string.btn_delete),
+        builder.setMessage(getResources().getString(R.string.ui_alert_dialog_update_team)).setPositiveButton(getResources().getString(R.string.btn_update),
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
