@@ -8,6 +8,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
+import retrofit2.http.Path;
 
 public interface LaLigaApiInterface {
 
@@ -18,6 +19,11 @@ public interface LaLigaApiInterface {
     @Headers({"Accept: application/json"})
     @GET("/teams")
     Call<List<Team>> getTeams();
+
+    @Headers({"Accept: application/json"})
+    @GET("/team/{id}")
+    Call<Team> getTeamById(@Path(value = "id") long id);
+
 
 
 }

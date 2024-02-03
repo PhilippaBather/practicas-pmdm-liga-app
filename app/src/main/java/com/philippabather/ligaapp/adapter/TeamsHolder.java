@@ -36,12 +36,10 @@ public class TeamsHolder extends RecyclerView.ViewHolder {
     }
 
     private void goToTeamDetailsView(List<Team> teams) {
-        // TODO - method to go to specific team page
         Intent intent = new Intent(parentView.getContext(), TeamDetailView.class);
         Team team = getCurrentTeam(teams);
-        // TODO - use parcelable
-//        intent.putExtra("team_name");
-//        parentView.getContext().startActivity(intent);
+        intent.putExtra("teamId", team.getId());
+        parentView.getContext().startActivity(intent);
     }
 
     private Team getCurrentTeam(List<Team> teams) {
