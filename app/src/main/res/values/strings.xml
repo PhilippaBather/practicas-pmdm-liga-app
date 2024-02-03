@@ -25,4 +25,5 @@
     <string name="tv_team_details_name">Nombre</string>
     <string name="btn_update">Actualizar</string>
     <string name="btn_back">Volver</string>
+    <string name="menu_item_add_stadium">Añadir un estadio</string>
 </resources>
