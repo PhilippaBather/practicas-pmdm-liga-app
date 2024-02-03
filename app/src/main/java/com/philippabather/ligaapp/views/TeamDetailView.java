@@ -2,29 +2,32 @@ package com.philippabather.ligaapp.views;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.LongDef;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.philippabather.ligaapp.R;
 import com.philippabather.ligaapp.contract.TeamDetailContract;
+import com.philippabather.ligaapp.contract.TeamsUpdateContract;
 import com.philippabather.ligaapp.domain.Team;
+import com.philippabather.ligaapp.presenter.TeamUpdatePresenter;
 import com.philippabather.ligaapp.presenter.TeamsDetailPresenter;
 
-public class TeamDetailView extends AppCompatActivity implements TeamDetailContract.View {
+public class TeamDetailView extends AppCompatActivity implements TeamDetailContract.View, TeamsUpdateContract.View {
 
+    private Button btnBack;
     private Button btnDelete;
     private Button btnUpdate;
     private EditText etName;
     private EditText etFounded;
     private EditText etChampions;
     private EditText etPoints;
-    private TeamsDetailPresenter presenter;
+    private TeamsDetailPresenter teamsDetailPresenter;
+    private TeamUpdatePresenter teamUpdatePresenter;
+
     private long teamId;
     private Team team;
 
@@ -37,15 +40,10 @@ public class TeamDetailView extends AppCompatActivity implements TeamDetailContr
 
         Intent intent = getIntent();
         teamId = intent.getLongExtra("teamId", 1L);
-        Log.e("teamId", String.valueOf(teamId));
         team = new Team();
 
-        presenter = new TeamsDetailPresenter(this);
-
-        // set fields
-
-        // add delete and update calls to API
-        // update contract, MVP
+        teamsDetailPresenter = new TeamsDetailPresenter(this);
+        teamUpdatePresenter = new TeamUpdatePresenter(this);
 
         // add dialogs
 
@@ -55,10 +53,11 @@ public class TeamDetailView extends AppCompatActivity implements TeamDetailContr
     @Override
     protected void onResume() {
         super.onResume();
-        presenter.loadTeam(teamId);
+        teamsDetailPresenter.loadTeam(teamId);
     }
 
     private void findViews() {
+        btnBack = findViewById(R.id.btn_back);
         btnDelete = findViewById(R.id.btn_delete);
         btnUpdate = findViewById(R.id.btn_update);
         etChampions = findViewById(R.id.et_team_details_champions);
@@ -81,18 +80,35 @@ public class TeamDetailView extends AppCompatActivity implements TeamDetailContr
     }
 
     private void setListeners() {
+        btnBack.setOnClickListener(v -> handleBackBtn());
         btnDelete.setOnClickListener(v -> handleDelete());
         btnUpdate.setOnClickListener(v -> handleUpdate());
     }
 
+    private void handleBackBtn() {
+        Intent intent = new Intent(this, TeamsView.class);
+        startActivity(intent);
+    }
+
     private void handleDelete() {
         // TODO - dialog and delete
+        teamUpdatePresenter.deleteTeamById(team.getId());
     }
 
     private void handleUpdate() {
         // TODO - dialog and update
-    }
 
+        String name = etName.getText().toString();
+        String founded = etFounded.getText().toString();
+        boolean areChampions = etChampions.getText().toString().toLowerCase().equals("true"); // default: false
+        int points = Integer.parseInt(etPoints.getText().toString());
+        Team updatedTeam = new Team(name, founded, areChampions, points);
+
+        teamUpdatePresenter.updateTeamById(team.getId(), updatedTeam);
+
+        // 3. send to API
+
+    }
 
     @Override
     public void showMessage(String msg) {

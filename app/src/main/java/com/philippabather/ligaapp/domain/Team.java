@@ -7,6 +7,16 @@ public class Team {
     private Boolean areChampions;
     private int leaguePoints;
 
+    public Team() {
+    }
+
+    public Team(String name, String foundationDate, Boolean areChampions, int leaguePoints) {
+        this.name = name;
+        this.foundationDate = foundationDate;
+        this.areChampions = areChampions;
+        this.leaguePoints = leaguePoints;
+    }
+
     public long getId() {
         return id;
     }
