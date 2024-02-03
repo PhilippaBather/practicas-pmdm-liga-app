@@ -56,10 +56,8 @@ public class MainView extends AppCompatActivity {
         Intent intent = new Intent();
 
         if (item.getItemId() == R.id.menu_item_stadiums) {
-            // intent = new Intent(this, StadiumsView.class);
             goToStadiumsActivity();
         } else if (item.getItemId() == R.id.menu_item_teams) {
-            // intent = new Intent(this, TeamsView.class);
             goToTeamsActivity();
         } else {
             return super.onOptionsItemSelected(item);
